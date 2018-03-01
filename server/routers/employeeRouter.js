@@ -13,48 +13,48 @@ const EmployeeSchema = new mongoose.Schema(
 
 const Employee = mongoose.model('Employee', EmployeeSchema, 'employees');
 
-let testEmployee = new Employee(
-  {
-    name: 'Test Employee',
-    salary: 20000,
-    title: 'Job Title',
-    hiredate: new Date('2018-02-01')
-  }
-);//end test employee build
+// let testEmployee = new Employee(
+//   {
+//     name: 'Test Employee',
+//     salary: 20000,
+//     title: 'Job Title',
+//     hiredate: new Date('2018-02-01')
+//   }
+// );//end test employee build
 
-testEmployee.save();
+// testEmployee.save();
 
 router.get('/', (request, response) => {
-  Game.find({}, (error, foundGames) => {
+  Employee.find({}, (error, foundEmployees) => {
     if (error){
-      console.log('error on find games:', error);
+      console.log('error on find employees:', error);
       response.sendStatus(500);
     } else {
-      response.send(foundGames);
+      response.send(foundEmployees);
     }
   })
 });
 
 router.post('/', (request, response)=> {
     let newEmployee = new Employee (request.body);
-    console.log('employee added');
+    console.log('employee added', newEmployee);
     newEmployee.save((error, addedEmployee ) => {
         if(error){
             console.log('error in posting employee', error);
-            response.sendStatus(500);            
+            response.sendStatus(500);
         }else {
             response.sendStatus(201);
         }
     })
-    
+
 });
 
 router.put('/:id', (request, response)=> {
     let id = request.params.id;
     let employeeToUpdate = request.body;
-    console.log('employeeToUpdate');
-    employee.findByIdAndUpdate(
-        {"id": id},
+    console.log('employeeToUpdate', employeeToUpdate);
+    Employee.findByIdAndUpdate(
+        {"_id": id},
         {$set: employeeToUpdate},
         (error, updateEmployee) =>{
             if(error){
@@ -65,13 +65,13 @@ router.put('/:id', (request, response)=> {
             }
         }
     )
-    
+
 })
 
-router.delete('/id:', (request, response)=> {
+router.delete('/:id', (request, response) => {
     let id = request.params.id;
-    employee.findIdAndRemove(
-        {"id": id},
+    Employee.findByIdAndRemove(
+        {"_id": id},
         (error , deletedEmployee) => {
             if (error){
                 console.log('error in delete');
