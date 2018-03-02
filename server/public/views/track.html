@@ -10,11 +10,31 @@
     </thead>
     <tbody>
         <tr ng-repeat="employee in ec.employees.list">
-            <td>{{employee.name}}</td>
-            <td>{{employee.id}}</td>
-            <td>{{employee.title}}</td>
-            <td>{{employee.hireDate}}</td>
-            <td><button>Edit</button></td>
+            <td>
+              <div ng-hide="employee.editing">{{employee.name}}</div>
+              <input ng-show="employee.editing" ng-model="employee.name" ng-value="employee.name">
+            </td>
+            <td>
+              <div ng-hide="employee.editing">{{employee.id}}</div>
+              <input ng-show="employee.editing" ng-model="employee.id" ng-value="employee.id">
+            </td>
+            <td>
+              <div ng-hide="employee.editing">{{employee.salary}}</div>
+              <input ng-show="employee.editing" ng-model="employee.salary" ng-value="employee.salary">
+            </td>
+            <td>
+              <div ng-hide="employee.editing">{{employee.title}}</div>
+              <input ng-show="employee.editing" ng-model="employee.title" ng-value="employee.title">
+            </td>
+            <td>
+              <div ng-hide="employee.editing">{{employee.hiredate |  date:'shortDate'}}</div>
+              <input ng-show="employee.editing" ng-model="employee.hiredate" ng-value="employee.hiredate.substring(0,10)">
+            </td>
+            <td><button ng-hide="employee.editing" ng-click="employee.editing=true">Edit</button>
+                <button ng-show="employee.editing" ng-click="ec.updateEmployee(employee)">Submit</button>
+
+
+            </td>
             <td><button ng-click="ec.deleteEmployee(employee._id)">Delete</button></td>
         </tr>
     </tbody>

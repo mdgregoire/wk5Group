@@ -5,8 +5,10 @@ const mongoose = require('mongoose');
 const EmployeeSchema = new mongoose.Schema(
   {
     name: {type: String, required: true},
+    id: {type: Number, required: true},
     salary: {type: Number},
     title: {type: String, required: true},
+    editing: {type: Boolean, default: false}, 
     hiredate: {type: Date, required: true}
   }
 );//end employee schema

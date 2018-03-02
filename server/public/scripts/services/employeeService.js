@@ -20,8 +20,6 @@ app.service('EmployeeService', ['$http', function($http){
 
 
     self.addEmployee = function(newEmployee){
-      console.log(newEmployee.hireDate);
-      // self.newEmployee = newEmployee;
       $http({
         method: 'POST',
         url: '/employees',
@@ -36,9 +34,13 @@ app.service('EmployeeService', ['$http', function($http){
     }
     // end addEmployee
 
-    self.updateEmployee = function(){
-
-    }
+    // self.updateEmployee = function(){
+    //   $http({
+    //     method: 'PUT',
+    //     url: `/employees/${id}`,
+    //     data:
+    //   })
+    // }
     // end updateEmployee
 
     self.deleteEmployee = function(id){
