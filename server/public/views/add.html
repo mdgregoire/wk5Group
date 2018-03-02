@@ -1,10 +1,10 @@
 <h2>Add Employees</h2>
 <form>
-    <input ng-model="newEmployee.name" type="text" placeholder="Name">
-    <input ng-model="newEmployee.id" type="number" placeholder="ID">
-    <input ng-model="newEmployee.salary" type="number" placeholder="Salary">
-    <input ng-model="newEmployee.title" type="text" placeholder="Title">
+    <input ng-model="ec.newEmployee.name" type="text" placeholder="Name">
+    <input ng-model="ec.newEmployee.id" type="number" placeholder="ID">
+    <input ng-model="ec.newEmployee.salary" type="number" placeholder="Salary">
+    <input ng-model="ec.newEmployee.title" type="text" placeholder="Title">
     <br>
-    <label>Hire Date: <input ng-model="newEmployee.hireDate" type="date"></label>
-    <button>Add</button>
+    <label>Hire Date: <input ng-model="ec.newEmployee.hiredate" type="date"></label>
+    <button ng-click="ec.addEmployee(ec.newEmployee)">Add</button>
 </form>

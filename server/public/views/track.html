@@ -9,13 +9,13 @@
         <th></th>
     </thead>
     <tbody>
-        <tr ng-repeat="employee in gc.employees.list">
+        <tr ng-repeat="employee in ec.employees.list">
             <td>{{employee.name}}</td>
             <td>{{employee.id}}</td>
             <td>{{employee.title}}</td>
             <td>{{employee.hireDate}}</td>
             <td><button>Edit</button></td>
-            <td><button>Delete</button></td>
+            <td><button ng-click="ec.deleteEmployee(employee._id)">Delete</button></td>
         </tr>
     </tbody>
 </table>
