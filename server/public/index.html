@@ -2,9 +2,25 @@
 <html ng-app = "myApp">
   <head>
     <meta charset="utf-8">
-    <title>HR  APP</title>
+    <title>HR APP</title>
+    <script src="vendors/angular.js"></script>
+    <script src="vendors/angular-route.js"></script>
+    <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/employeeController.js"></script>
+    <script src="scripts/services/employeeService.js"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.css">
   </head>
   <body>
-    <h1>HR APP</h1>
+    <section class="jumbotron">
+      <h1>HR APP</h1>
+      <nav class="nav">
+        <a class="nav-link" href="/#!">Track Employees</a>
+        <a class="nav-link" href="/#!add">Add Employees</a>
+        <a class="nav-link" href="/#!report">Reports</a>
+      </nav>
+    </section>
+
+    <main ng-view></main>
+
   </body>
 </html>

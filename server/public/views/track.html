@@ -1,0 +1,21 @@
+<h2>Track Employees</h2>
+<table class="table">
+    <thead>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Salary</th>
+        <th>Title</th>
+        <th>Hire Date</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employee in gc.employees.list">
+            <td>{{employee.name}}</td>
+            <td>{{employee.id}}</td>
+            <td>{{employee.title}}</td>
+            <td>{{employee.hireDate}}</td>
+            <td><button>Edit</button></td>
+            <td><button>Delete</button></td>
+        </tr>
+    </tbody>
+</table>
