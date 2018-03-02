@@ -34,13 +34,18 @@ app.service('EmployeeService', ['$http', function($http){
     }
     // end addEmployee
 
-    // self.updateEmployee = function(){
-    //   $http({
-    //     method: 'PUT',
-    //     url: `/employees/${id}`,
-    //     data:
-    //   })
-    // }
+    self.updateEmployee = function(employee){
+      $http({
+        method: 'PUT',
+        url: `/employees/${employee._id}`,
+        data: employee
+      }).then(function(response){
+        console.log('success in edit', response);
+        self.getEmployees();
+      }).catch(function(error){
+        console.log('errir in edit', error);
+      })
+    }
     // end updateEmployee
 
     self.deleteEmployee = function(id){
