@@ -17,10 +17,9 @@ const employeeController = app.controller('EmployeeController', ['EmployeeServic
     self.reportEmployeesMin = EmployeeService.reportEmployeesMin;
     self.reportEmployeesMax = EmployeeService.reportEmployeesMax;
     self.reportEmployeesAverage = EmployeeService.reportEmployeesAverage;
-    self.reportEmployees();
-    self.reportEmployeesMin();
-    self.reportEmployeesMax();
-    self.reportEmployeesAverage();
+    self.runReports = EmployeeService.runReports;
+    self.runReports();
+
 
 
     self.reportData = EmployeeService.reportData;

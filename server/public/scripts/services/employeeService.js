@@ -6,6 +6,13 @@ app.service('EmployeeService', ['$http', function($http){
     self.newEmployee = {};
     self.reportData = {};
 
+    self.runReports = function(){
+      self.reportEmployees();
+      self.reportEmployeesMin();
+      self.reportEmployeesMax();
+      self.reportEmployeesAverage();
+    }
+
     self.getEmployees = function(){
       $http({
         method: 'GET',
@@ -28,6 +35,7 @@ app.service('EmployeeService', ['$http', function($http){
       }).then(function(response){
         console.log('success in post', response);
         self.getEmployees();
+        self.runReports();
       }).catch(function(error){
         console.log('error in post', error);
       })
@@ -43,6 +51,7 @@ app.service('EmployeeService', ['$http', function($http){
       }).then(function(response){
         console.log('success in edit', response);
         self.getEmployees();
+        self.runReports();
       }).catch(function(error){
         console.log('errir in edit', error);
       })
@@ -56,6 +65,7 @@ app.service('EmployeeService', ['$http', function($http){
       }).then(function(response){
         console.log('success in delete', response);
         self.getEmployees();
+        self.runReports();
       }).catch(function(error){
         console.log('error in delete', error);
       })
