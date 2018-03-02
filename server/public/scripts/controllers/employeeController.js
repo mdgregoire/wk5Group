@@ -13,7 +13,17 @@ const employeeController = app.controller('EmployeeController', ['EmployeeServic
     self.updateEmployee = EmployeeService.updateEmployee;
 
     self.deleteEmployee = EmployeeService.deleteEmployee;
+    self.reportEmployees = EmployeeService.reportEmployees;
+    self.reportEmployeesMin = EmployeeService.reportEmployeesMin;
+    self.reportEmployeesMax = EmployeeService.reportEmployeesMax;
+    self.reportEmployeesAverage = EmployeeService.reportEmployeesAverage;
+    self.reportEmployees();
+    self.reportEmployeesMin();
+    self.reportEmployeesMax();
+    self.reportEmployeesAverage();
 
+
+    self.reportData = EmployeeService.reportData;
 }])//end employeeController
 
 

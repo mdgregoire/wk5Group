@@ -4,6 +4,7 @@ app.service('EmployeeService', ['$http', function($http){
     let self = this;
     self.employees = { list: [] };
     self.newEmployee = {};
+    self.reportData = {};
 
     self.getEmployees = function(){
       $http({
@@ -62,13 +63,64 @@ app.service('EmployeeService', ['$http', function($http){
     }
     // end deleteEmployee
 
+    self.reportEmployees = function(){
+      $http({
+        method: 'GET',
+        url: '/employees/report'
+      }).then(function(response){
+        console.log('success in reportGET', response);
+        self.reportData.count = response.data;
+      }).catch(function(error){
+        console.log('error in reportGet', error);
+      })
+
+    }
+//end reportEmployees count
+
+self.reportEmployeesMax = function(){
+  $http({
+    method: 'GET',
+    url: '/employees/report/max'
+  }).then(function(response){
+    console.log('success in reportGET', response);
+    self.reportData.max = response.data;
+  }).catch(function(error){
+    console.log('error in reportGet', error);
+  })
+
+}
+//end reportEmployeesmax count
+
+self.reportEmployeesMin = function(){
+  $http({
+    method: 'GET',
+    url: '/employees/report/min'
+  }).then(function(response){
+    console.log('success in reportGET', response);
+    self.reportData.min = response.data;
+  }).catch(function(error){
+    console.log('error in reportGet', error);
+  })
+
+}
+//end reportEmployeesMin count
+
+self.reportEmployeesAverage = function(){
+  $http({
+    method: 'GET',
+    url: '/employees/report/average'
+  }).then(function(response){
+    console.log('success in reportGET', response);
+    console.log(response);
+    self.reportData.average = response.data;
+    console.log(self.reportData.average, 'average');
+  }).catch(function(error){
+    console.log('error in reportGet', error);
+  })
+
+}
+//end reportEmployeesAverage count
+
+
+
 }])//end app service
-
-
-
-{/* <input ng-model="newEmployee.name" type="text" placeholder="Name">
-<input ng-model="newEmployee.id" type="number" placeholder="ID">
-<input ng-model="newEmployee.salary" type="number" placeholder="Salary">
-<input ng-model="newEmployee.title" type="text" placeholder="Title">
-<br>
-<label>Hire Date: <input ng-model="newEmployee.hireDate" type="date"></label> */}
